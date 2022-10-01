@@ -1,0 +1,229 @@
+.tamanhoInput{
+    width: 350px;
+}
+
+.buttonPesquisar{
+    background-color: green !important;
+    border-color: green !important;
+}
+
+.box {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .box-filtro {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .box-acoes {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+
+  :host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    .ocultar {
+        display: none;
+    }
+
+    .main-container {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        flex-direction: column;
+        width: 100%;
+
+        .acoes-entidade {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-top: 32px;
+
+            &.ocultar {
+                display: none;
+            }
+        }
+
+        .formulario,
+        .listagem,
+        .loader {
+            width: 100%;
+        }
+
+        
+    }
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.1s ease;
+    
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.3);
+    }
+  }
+
+  .circle-green {
+    background-color: green;
+  }
+
+  mat-form-field.form-field{
+    margin-right: 10px;
+    font-size: 14px;
+    width: 100%;
+    height: 80%;
+}
+
+mat-form-field.form-select{
+    margin-right: 10px;
+    font-size: 14px;
+    width: 100%;
+    height: 80%;
+}
+
+.button {
+    margin-right: 10px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.box-resultados {
+    margin-top: 20px;
+  
+    .table-resultados {
+      width: 100%;
+  
+      border-collapse: separate;
+      border-spacing: 0;
+  
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+  
+      background-color: white;
+      box-shadow: 0px 3px 5px rgb(0 0 0 / 12%);
+  
+      tr {
+        height: 32px;
+      }
+  
+     th {
+        color: #fff;
+        background-color: #28aef2;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 500;
+  
+        font-weight: 200;
+  
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        padding: 0 8px;
+  
+        &:first-child {
+          border-top-left-radius: 5px;
+        }
+  
+        &:last-child {
+          border-top-right-radius: 5px;
+        }
+  
+      }  
+  
+      tr td {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #dae7f5;
+        padding: 2px 8px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.87);
+      }
+  
+      tr:nth-child(odd) td {
+        background-color: #f4f8fc;
+      }
+  
+      tr:hover td {
+        cursor: pointer;
+        background-color: #fff0b4;
+      }
+  
+      th {
+        padding: 5px;
+        color: #28aef2;
+      }  
+  
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+  
+      .td-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f4f4f4;
+      }
+  
+      .circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        transition: all 0.1s ease;
+        
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.3);
+        }
+      }  
+    }
+  }
+
+  .btn
+{
+    background-color: transparent !important;
+            font-size: xx-large;
+            border: none;
+            cursor: pointer;
+            outline: none;
+}
+
+header {
+    width: 100%;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #0073AE;
+    font-weight: 200;  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    span {
+        font-weight: bold;
+        font-size: 18px;
+  
+        &:hover {
+            cursor: pointer;
+        }
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+

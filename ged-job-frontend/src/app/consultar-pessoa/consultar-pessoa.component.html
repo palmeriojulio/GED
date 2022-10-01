@@ -1,0 +1,132 @@
+<div class="main-container">
+  <header>
+    <h2>Consultar Indicador Pessoal e Real</h2>
+  </header>
+
+  <div class="box" >
+    <!-- FILTROS -->
+    <div class="box-filtro">
+      <mat-form-field appearance="outline" class="form-select">
+        <mat-label>Tipo consulta</mat-label>
+        <mat-select
+          disableOptionCentering
+          [(value)]="tipoConsulta"
+          placeholder="Selecione o tipo consulta"
+          matTooltip="Selecione o tipo consulta">
+          <mat-option *ngFor="let tipo of tiposConsulta" [value]="tipo.valor">
+            {{ tipo.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" class="form-field" >
+      <input matInput
+          name="parametro"
+          placeholder="Parâmetro"
+          [(ngModel)]="parametro">
+    </mat-form-field>
+    <!-- <mat-form-field appearance="outline" class="form-field" *ngIf="tipoConsulta == 'CPF'">
+      <input matInput
+        name="parametro"
+        placeholder="Parâmetro"
+        [textMask]="{mask: cpfmask}"
+        [(ngModel)]="parametro">
+    </mat-form-field> -->
+    <div class="box-acoes">
+      <button
+        mat-raised-button
+        color="primary"
+        class="button"
+        (click)="consulta()">Pesquisar</button>
+
+      <button
+        mat-raised-button
+        color="warn"
+        class="button"
+        (click)="limpar()">Limpar</button>
+
+    </div>
+  </div>
+  <div class="box-resultados">
+    <table mat-table [dataSource]="dataSource" class="table-resultados">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef style="color: #fff; background-color: #28aef2; font-weight: bolder;"> Nome </th>
+        <td mat-cell *matCellDef="let resultado"> {{resultado.nome}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="cpf_cnpj">
+        <th mat-header-cell *matHeaderCellDef style="color: #fff; background-color: #28aef2; font-weight: bolder"> CPF/CNPJ </th>
+        <td mat-cell *matCellDef="let resultado"> {{resultado.cpf}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="logradouro">
+        <th mat-header-cell *matHeaderCellDef style="color: #fff; background-color: #28aef2; font-weight: bolder"> Logradouro </th>
+        <td mat-cell *matCellDef="let resultado"> {{resultado.logradouro}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <!-- <ng-container matColumnDef="anexo">
+        <th mat-header-cell *matHeaderCellDef style="color: #fff; background-color: #28aef2; font-weight: bolder"> Anexo </th>
+        <td mat-cell *matCellDef="let resultado">
+          <button (click)="abrirAnexo(resultado)" class="btn">
+            <span class="material-icons-outlined">
+              source
+              </span>
+          </button>
+        </td>
+      </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="abrirAnexo(row)"></tr>
+    </table>
+
+    <mat-paginator
+      #paginator
+      [pageSize]="14"
+      [pageSizeOptions]="[5, 10, 15, 20]">
+    </mat-paginator>
+  </div>
+  <!-- <div class="box-resultados" >
+    <table
+      class="table-resultados"
+      [ngClass]="{ 'ocultar': listaResultados.length === 0 }">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Logradouro</th>
+          <th>Anexo</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let resultado of listaResultados">
+          <td>
+            {{ resultado.nome }}
+          </td>
+          <td>
+            {{ resultado.cpf }}
+          </td>
+          <td>
+            {{ resultado.logradouro }}
+          </td>
+          <td style="text-align: center;vertical-align: middle;">
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator
+      [ngClass]="{ 'ocultar': listaResultados.length === 0 }"
+      [length]="listaResultados.length"
+      [pageSizeOptions]="[10, 50, 100]"
+      aria-label="Select page">
+    </mat-paginator>
+  </div> -->
+
+</div>

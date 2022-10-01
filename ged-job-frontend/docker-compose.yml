@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  ged-front:
+    image: ged-front
+    build: .
+    ports:
+      - 4200:80

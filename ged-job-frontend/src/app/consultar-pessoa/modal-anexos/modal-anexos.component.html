@@ -1,0 +1,52 @@
+<header>
+    <h3>Anexos</h3>
+    <span (click)="fecharModal()">X</span>
+</header>
+  <br>
+
+  <div *ngIf="carregando">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  
+   <div>
+    <label><span style="font-weight: bolder;">Nome: </span>{{dados.resultado.nome}}</label>
+   </div>
+
+   <div>
+    <label><span style="font-weight: bolder;">Endereço: </span>{{dados.resultado.logradouro}}</label>
+   </div>
+
+   
+  
+  <div class="main-container" mat-dialog-content >
+    <table 
+      class="table-resultados" 
+      [ngClass]="{ 'ocultar': dados.resultado.documentos.length === 0 }">
+      <thead>
+        <tr>  
+          <th>Nome do Arquivo</th>
+          <th>Data de Inclusão</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let documento of dados.resultado.documentos">          
+          <td>
+            {{ documento.nome }}           
+          </td>
+          <td>
+            {{ documento.dataCriacao }}           
+          </td>
+          <td style="text-align: center;vertical-align: middle;" >
+              <button (click)="exibirAnexo(documento)"  class="btn">
+                <span class="material-icons-outlined">
+                    file_present
+                </span>  
+              </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <mat-paginator [length]="dados.resultado.documentos.length" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+      </mat-paginator>   
+  </div>
